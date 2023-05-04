@@ -1,0 +1,120 @@
+import 'package:flutter/material.dart';
+import '../controller/home_controller.dart';
+
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
+
+  Widget build(context, HomeController controller) {
+    controller.view = this;
+
+    return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Current location",
+                  style: TextStyle(
+                    fontSize: 10,
+                  ),
+                ),
+                Row(
+                  children: const [
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Icon(
+                      Icons.place,
+                      size: 18,
+                      color: Colors.green,
+                    ),
+                    Text(
+                      "Makassar, Sulawesi Selatan",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ]),
+          actions: const [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Center(
+                child: Badge(
+                  label: Text(
+                    "4",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  child: Icon(Icons.notifications),
+                ),
+              ),
+            ),
+          ]),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: const Text("Andrew Garfield"),
+              accountEmail: const Text("capek@ngoding.com"),
+              currentAccountPicture: const CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blueGrey[900],
+              ),
+              otherAccountsPictures: const [
+                // CircleAvatar(
+                //   backgroundColor: Colors.white,
+                //   backgroundImage: NetworkImage(
+                //       "https://randomuser.me/api/portraits/women/74.jpg"),
+                // ),
+                // CircleAvatar(
+                //   backgroundColor: Colors.white,
+                //   backgroundImage: NetworkImage(
+                //       "https://randomuser.me/api/portraits/men/47.jpg"),
+                // ),
+              ],
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text("Home"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.code),
+              title: const Text("About"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.rule),
+              title: const Text("TOS"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.privacy_tip),
+              title: const Text("Privacy Policy"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.logout,
+              ),
+              title: const Text("Logout"),
+              onTap: () {},
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  State<HomeView> createState() => HomeController();
+}
