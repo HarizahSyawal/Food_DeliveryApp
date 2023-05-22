@@ -11,7 +11,6 @@ dependencies:
   freezed_annotation: ^2.1.0
   json_annotation: ^4.7.0
   intl: ^0.17.0
-  google_fonts: ^3.0.1
   material_design_icons_flutter: ^5.0.6996
   image_picker: ^0.8.5+3
   file_picker: ^5.2.2
@@ -38,6 +37,7 @@ dependencies:
   path_provider: ^2.0.11
   flutter_animate: ^3.1.0
   dio: ^5.0.1
+  google_fonts: ^4.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
